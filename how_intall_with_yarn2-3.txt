@@ -1,0 +1,8 @@
+1. Delete yarn.lock
+2. Create .yarnrc.yml
+3. yarn install # command again
+4. yarn build:css
+
+css: bin/rails tailwindcss:watch  # added by `tailwindcss-rails`
+css: yarn build:css --watch       # added by `cssbundling-rails`
+js: yarn build --watch 

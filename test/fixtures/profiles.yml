@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  before_photo: MyString
+  after_photo: MyString
+  avatar: MyString
+
+two:
+  user: two
+  before_photo: MyString
+  after_photo: MyString
+  avatar: MyString
