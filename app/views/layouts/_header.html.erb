@@ -1,0 +1,89 @@
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light align-items-center border-bottom">
+    <div class="container">
+      <div class="d-flex align-items-center ">
+        <%= link_to "JumFit", root_path, class: "navbar-brand m-0 textColor fw-bold brand" %>
+        <div id="verticalbar" class="mx-xxl-2 mx-1 d-none d-lg-inline-block"></div>
+        <a href="#" class="nav-link textColor fw-lighter lh-sm brandSubHeading d-none d-lg-inline-block">Счастливое
+          <br>
+          <span class="fw-medium brandSubHeading d-none d-lg-inline-block">Тело</span>
+        </a>
+      </div>
+      <div class="d-flex align-items-center">
+        <div class="d-none d-lg-block">
+          <ul class="d-flex m-0 list-unstyled ">
+            <li class="nav-item navChange me-4 pt-2">
+              <a href="#" class="nav-link text-center  p-0">
+                <div class=" d-flex align-items-center overflow-hidden changeWidth mx-auto">
+                </div>
+                <div class="smallFont textColor">О марафоне</div>
+              </a>
+            </li>
+            <li class="nav-item navChange me-4 pt-2">
+              <a href="#" class="nav-link text-center p-0">
+                <div class=" d-flex align-items-center overflow-hidden changeWidth mx-auto">
+                </div>
+                <div class="smallFont textColor">Цели</div>
+              </a>
+            </li>
+            <li class="nav-item navChange me-4 pt-2">
+              <a href="#" class="nav-link text-center p-0">
+                <div class=" d-flex align-items-center overflow-hidden changeWidth mx-auto">
+                </div>
+                <div class="smallFont textColor">Stats</div>
+              </a>
+            </li>
+            <li class="nav-item navChange me-4 pt-2">
+              <a href="#" class="nav-link text-center p-0">
+                <div class=" d-flex align-items-center overflow-hidden changeWidth mx-auto">
+                </div>
+                <div class="smallFont textColor">Обо мне</div>
+              </a>
+            </li>
+            <li class="nav-item navChange me-3 pt-2">
+              <a href="#" class="nav-link text-center p-0">
+                <div class=" d-flex align-items-center overflow-hidden changeWidth mx-auto">
+                </div>
+                <div class="smallFont textColor">Контакты</div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <% if user_signed_in? %>
+          <div class="flex-shrink-0 dropdown">
+            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu" style="">
+              <li><a class="dropdown-item" href="#">Ваши курсы</a></li>
+              <li><%= link_to "Профиль", current_user, class:"dropdown-item" %></li>
+              <li><%= link_to "Вопросы", questions_path, class:"dropdown-item" %></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><%= button_to 'Logout', destroy_user_session_path, method: :delete, class:"dropdown-item" %></li>
+            </ul>
+          </div>
+        <!--
+<div class="d-flex align-items-center">
+        <form class="w-100 me-3" role="search">
+          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+        </form>
+
+        <div class="flex-shrink-0 dropdown">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small shadow" style="">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div>
+      </div>-->
+      <% else %>
+        <%= link_to 'Зарегистрироваться', new_user_registration_path, class: 'btn btn-sm m-sm-2 m-1 bg-primary text-white rounded-5 px-sm-3 px-2 d-none d-lg-inline-block', id:"hostBtn" %>
+        <%= link_to 'Войти', new_user_session_path, class: 'btn btn-sm m-sm-2 m-1 text-white a rounded-5 px-3', id:"loginBtn" %>
+      <% end %>
+    </div>
+  </div>
+</nav>

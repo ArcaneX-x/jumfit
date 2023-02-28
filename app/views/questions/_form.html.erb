@@ -1,9 +1,28 @@
 <div class="container">
 
 <%= simple_form_for @question do |f| %>
-  <%= f.input :title %>
-  <%= f.input :body %>
-  <%= f.button :submit %>
+  <%= f.input :title, label: 'Заголовок' %>
+  <%= f.input :body, label: 'Содержание', as: :text %>
+  <%= f.submit 'Отправить', class: 'btn btn-primary' %>
 <% end %>
 
+
 <end>
+<!--
+
+-->
+<%#= form_with model: @question do |f| %>
+<!--  <div>-->
+    <%#= f.label :title %>
+    <%#= f.text_field :title, required: true, minlength: 2, placeholder: 'Title' %>
+<!--  </div>
+
+  <div>
+  <div>-->
+    <%#= f.label :body %>
+    <%#= f.text_area :body, required: true, minlength: 2 %>
+<!--  </div>
+
+-->
+  <%#= f.submit "Submit question!" %>
+<%# end %>

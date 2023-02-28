@@ -1,9 +1,12 @@
 <h1><%= @question.title %></h1>
-
 <p>
-  <time datetime="<%= @question.formatted_created_at %>">
-    <%= @question.formatted_created_at %>
-  </time>
-  <br>
   <%= @question.body %>
+  <br>
+  <%= l @question.created_at, format: :long %>
 </p>
+<h4>Leave a comment:</h4>
+
+<%= render partial: "answers/form",
+                       locals: { answer: @new_answer || @question.answers.build } %>
+<%= render partial: "answers/answer",
+                 collection: @question.answers.except(@new_answer) %>

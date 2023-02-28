@@ -1,0 +1,14 @@
+<h1>Edit question</h1>
+<%= render 'form' %>
+
+<!--Confirmation
+If you want to add confirmation prompt to a button above:
+
+-->
+<%#= button_to 'Sign Out', @question, method: :delete,
+  form: {data: {turbo: true, turbo_confirm: 'Are you sure?'}} %>
+<!--If you want to add confirmation to a link above:
+
+-->
+<%#= link_to 'Sign Out', @question,
+  data: {turbo: true, turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
