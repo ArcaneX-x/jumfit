@@ -1,22 +1,16 @@
 class ProfilesController < ApplicationController
-  # before_action :set_preference, only: [:update]
+  def update
+    if @profile.update(profile_params)
+      redirect_to current_user, notice: 'Profile was successfully updated.'
+    else
+      flash[:alert] = 'Information incorrect'
+      render :edit
+    end
+  end
 
-  # def update
-  #   if current_user.preference.update(preference_params)
-  #     redirect_to current_user, notice: 'Settings saved'
-  #   else
-  #     flash[:alert] = 'Information incorrect'
-  #     redirect_to current_user, notice: ''
-  #   end
-  # end
+  private
 
-  # private
-
-  # def set_preference
-  #   @preference = Preference.find(params[:id])
-  # end
-
-  # def preference_params
-  #   params.require(:preference).permit(:theme, :locale)
-  # end
+  def profile_params
+    params.require(:profile).permit(:avatar)
+  end
 end

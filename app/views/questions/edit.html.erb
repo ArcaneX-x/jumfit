@@ -1,5 +1,4 @@
 <h1>Edit question</h1>
 <%= render 'form' %>
 
-
 <%= button_to 'Delete', @question, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: "btn btn-danger mx-1" %>

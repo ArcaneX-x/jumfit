@@ -1,17 +1,16 @@
 class UsersController < ApplicationController
-  before_action :set_current_user, except: [:show]
+  before_action :set_current_user
 
-  def show
-    @user = User.find(params[:id])
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
-    if @user.update(user_params)
-      redirect_to @user, notice: "Updated"
+    if current_user.update(user_params)
+      flash[:notice] = 'Useer updated successfully.'
+      redirect_to current_user
     else
+      flash.now[:alert] = 'There was a problem updating your profile.'
       render :edit
     end
   end
@@ -23,6 +22,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :avatar)
+    params.require(:user).permit(:name, :email, :phone, profile_attributes: [:id, :avatar])
   end
 end

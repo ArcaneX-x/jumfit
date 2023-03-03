@@ -51,7 +51,8 @@
         <% if user_signed_in? %>
           <div class="flex-shrink-0 dropdown">
             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+              <%= image_tag current_user.profile.avatar.variant(resize_to_limit: [40, nil]).processed, alt:"mdo", width:"32", height:"32", class:"rounded-circle" %>
+              <!--<img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">-->
             </a>
             <ul class="dropdown-menu" style="">
               <li><%= link_to "Ваши курсы", courses_path, class:"dropdown-item" %></li>

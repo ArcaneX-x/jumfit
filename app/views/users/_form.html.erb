@@ -1,15 +1,11 @@
-<%= form_for @user, html: { multipart: true } do |f| %>
-  <%= render partial: 'partials/form_errors', locals: { model: @user } %>
-  <div class="mb-3">
-    <%= f.text_field :name, class: 'form-control', placeholder: 'Your name' %>
-  </div>
-  <div class="mb-3">
-    <%= f.text_field :email, class: 'form-control', placeholder: 'Your email' %>
-  </div>
-  <div class="mb-3">
-    <%= f.submit "Update", class: "form-button text-center" %>
-  </div>
+<h1>Edit User</h1>
+
+<%= simple_form_for @user, html: { multipart: true } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.input :phone %>
+  <%= f.simple_fields_for :profile do |profile_fields| %>
+    <%= profile_fields.input :avatar, as: :file %>
+  <% end %>
+  <%= f.button :submit, 'Save changes', class:"btn btn-primary" %>
 <% end %>
-
-
-
