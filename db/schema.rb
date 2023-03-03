@@ -24,20 +24,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_25_111206) do
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
-  create_table "attachments", force: :cascade do |t|
-    t.string "file"
-    t.string "attachable_type", null: false
-    t.bigint "attachable_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["attachable_type", "attachable_id"], name: "index_attachments_on_attachable"
-  end
-
   create_table "course_users", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "course_id", null: false
-    t.float "payment_amount", null: false
-    t.boolean "is_active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_course_users_on_course_id"
@@ -48,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_25_111206) do
   create_table "courses", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
-    t.float "price", null: false
+    t.decimal "price", precision: 10, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,6 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_25_111206) do
     t.bigint "course_id", null: false
     t.string "title", null: false
     t.text "content", null: false
+    t.text "equipment", null: false
     t.text "habit", null: false
     t.string "video", null: false
     t.datetime "available_from"
@@ -69,7 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_25_111206) do
   create_table "payments", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "course_id", null: false
-    t.integer "payment_amount", null: false
+    t.decimal "amount", precision: 10, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_payments_on_course_id"
@@ -78,9 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_25_111206) do
 
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "before_photo"
-    t.string "after_photo"
-    t.string "avatar"
+    t.jsonb "award", default: {}
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"

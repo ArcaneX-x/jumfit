@@ -54,7 +54,7 @@
               <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
             </a>
             <ul class="dropdown-menu" style="">
-              <li><a class="dropdown-item" href="#">Ваши курсы</a></li>
+              <li><%= link_to "Ваши курсы", courses_path, class:"dropdown-item" %></li>
               <li><%= link_to "Профиль", current_user, class:"dropdown-item" %></li>
               <li><%= link_to "Вопросы", questions_path, class:"dropdown-item" %></li>
               <li><hr class="dropdown-divider"></li>

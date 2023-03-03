@@ -1,3 +1,5 @@
+<div class="container">
+
 <h1><%= @question.title %></h1>
 <p>
   <%= @question.body %>
@@ -10,3 +12,4 @@
                        locals: { answer: @new_answer || @question.answers.build } %>
 <%= render partial: "answers/answer",
                  collection: @question.answers.except(@new_answer) %>
+</div>

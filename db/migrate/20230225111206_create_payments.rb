@@ -3,7 +3,7 @@ class CreatePayments < ActiveRecord::Migration[7.0]
     create_table :payments do |t|
       t.references :user, null: false, foreign_key: true
       t.references :course, null: false, foreign_key: true
-      t.integer :payment_amount, null: false
+      t.decimal :amount, precision: 10, scale: 2, null: false
 
       t.timestamps
     end

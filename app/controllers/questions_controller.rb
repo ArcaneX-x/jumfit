@@ -1,12 +1,13 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_current_user_question, only: %i[show edit update destroy]
+  before_action :set_current_user_question, only: %i[edit update destroy]
 
   def index
     @questions = Question.all
   end
 
   def show
+    @question = Question.find(params[:id])
   end
 
   def new
