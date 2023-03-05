@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   root 'users#index'
   namespace :admin do
-    resources :questions
     root to: 'questions#index'
+    resources :questions
+    resources :answers
+    resources :courses
   end
   resources :payments
 
