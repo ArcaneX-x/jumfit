@@ -4,5 +4,6 @@
     <h2><%= course.title %></h2>
     <p><%= course.description %></p>
     <p><%= course.price %></p>
+    <%= link_to "Lessons", course_lessons_path(course) %>
   <% end %>
 </div>

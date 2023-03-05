@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :questions
     resources :answers
     resources :courses
+    resources :lessons
   end
   resources :payments
 

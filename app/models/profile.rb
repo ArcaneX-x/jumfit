@@ -2,6 +2,7 @@ class Profile < ApplicationRecord
   belongs_to :user
   has_one_attached :avatar, dependent: :destroy do |attachable|
     attachable.variant :thumb, resize_to_limit: [200, nil]
+    attachable.variant :thumb_nav, resize_to_limit: [50, nil]
   end
   has_one_attached :before_image, dependent: :destroy
   has_one_attached :after_image, dependent: :destroy

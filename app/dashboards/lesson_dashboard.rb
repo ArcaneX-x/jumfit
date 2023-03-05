@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class LessonDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -10,16 +10,17 @@ class LessonDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     available_from: Field::DateTime,
-    available_to: Field::DateTime,
-    content: Field::Text,
-    course: Field::BelongsTo,
-    equipment: Field::Text,
-    habit: Field::Text,
     title: Field::String,
+    available_to: Field::DateTime,
+    content: TrixField,
+    course: Field::BelongsTo,
+    equipment: TrixField,
+    habit: TrixField,
     video: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
+
 
   # COLLECTION_ATTRIBUTES
   # an array of attributes that will be displayed on the model's index page.
@@ -28,22 +29,21 @@ class LessonDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    available_from
-    available_to
-    content
+    title 
+    video
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
+    course
     available_from
     available_to
+    title
     content
-    course
     equipment
     habit
-    title
     video
     created_at
     updated_at
@@ -53,13 +53,13 @@ class LessonDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
+    course
     available_from
     available_to
+    title
     content
-    course
     equipment
     habit
-    title
     video
   ].freeze
 

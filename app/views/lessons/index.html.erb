@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Lessons</h1>
+  <% @lessons.each do |lesson| %>
+    <h2><%= lesson.title %></h2>
+    <%= link_to "Show Lesson", course_lesson_path(id: lesson) %>
+
+  <% end %>
+</div>
