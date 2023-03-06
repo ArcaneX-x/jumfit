@@ -7,4 +7,7 @@
   <p>Видео:<%= @lesson.video %></p>
   <p><%= @lesson.available_from %></p>
   <p><%= @lesson.available_to %></p>
+  <% @lesson.images.each do |image| %>
+    <%= image_tag url_for(image) %>
+  <% end %>
 </div>
