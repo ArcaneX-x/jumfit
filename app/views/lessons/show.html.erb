@@ -1,9 +1,9 @@
 <div class="container">
   <%= link_to "Назад", :back %>
   <h1><%= @lesson.title %></h1>
-  <p>Контент: <%= sanitize @lesson.content %></p>
-  <p>Привычка:<%= sanitize @lesson.habit %></p>
-  <p>Оборудование:<%= sanitize @lesson.equipment %></p>
+  <p>Контент: <%= markdown @lesson.content %></p>
+  <p>Привычка:<%= markdown @lesson.habit %></p>
+  <p>Оборудование:<%= markdown @lesson.equipment %></p>
   <p>Видео:<%= @lesson.video %></p>
   <p><%= @lesson.available_from %></p>
   <p><%= @lesson.available_to %></p>

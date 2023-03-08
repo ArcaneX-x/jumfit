@@ -7,9 +7,9 @@
   <p>
     <%= question.body %>
     <br>
-    <%= link_to 'New', new_question_path(question) %> |
-    <%= link_to 'Show', question_path(question) %> |
-    <%= link_to 'Edit', edit_question_path(question) %> |
   </p>
+    <%= link_to 'Edit', edit_question_path(question) %> |
+    <%= link_to 'Show', question_path(question) %> |
 <% end %>
+    <%= link_to 'New', new_question_path(@questions) %> |
 </div>

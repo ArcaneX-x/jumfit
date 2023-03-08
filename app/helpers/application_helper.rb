@@ -1,9 +1,6 @@
 module ApplicationHelper
-  def user_avatar(user)
-    if user.avatar?
-      user.avatar.url
-    else
-      asset_path 'default_avatar.png'
-    end
+  def markdown(text)
+    options = [:hard_wrap, :autolink, :no_intra_emphasis, :fenced_code_blocks]
+    Markdown.new(text, *options).to_html.html_safe
   end
 end

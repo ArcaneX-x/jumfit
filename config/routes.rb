@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  resources :posts
   root 'users#index'
+
+  constraints ->(request) { request.env['warden'].user&.admin? } do
+    mount Avo::Engine, at: Avo.configuration.root_path
+  end
 
   resources :payments
 

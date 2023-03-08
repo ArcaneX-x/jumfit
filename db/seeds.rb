@@ -1,5 +1,5 @@
-admin = User.create!(name: "Evgeny", email: "joker@gmail.com", phone: "79622692295", password: "asdf1234", password_confirmation: "asdf1234", role: 1)
-user = User.create!(name: "Юлия Морозова", email: "avatar@gmail.com", phone: "7906222222", password: "asdf1234", password_confirmation: "asdf1234", role: 0)
+admin = User.create!(name: "Evgeny", email: "joker@gmail.com", phone: "79622692295", password: "asdf1234", password_confirmation: "asdf1234", role: "admin")
+user = User.create!(name: "Юлия Морозова", email: "avatar@gmail.com", phone: "7906222222", password: "asdf1234", password_confirmation: "asdf1234", role: "user")
 
 admin.courses.create!(title: "Happy Body", description: "bla bla bla", price: 2500.00)
 course = Course.last
